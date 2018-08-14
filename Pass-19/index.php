@@ -1,5 +1,4 @@
 <?php
-setcookie("pass","19");
 include '../config.php';
 include '../head.php';
 include '../menu.php';
@@ -7,14 +6,14 @@ include '../menu.php';
 $is_upload = false;
 $msg = null;
 if (isset($_POST['submit'])) {
-    if (file_exists($UPLOAD_ADDR)) {
+    if (file_exists(UPLOAD_PATH)) {
         $deny_ext = array("php","php5","php4","php3","php2","html","htm","phtml","pht","jsp","jspa","jspx","jsw","jsv","jspf","jtml","asp","aspx","asa","asax","ascx","ashx","asmx","cer","swf","htaccess");
 
         $file_name = $_POST['save_name'];
         $file_ext = pathinfo($file_name,PATHINFO_EXTENSION);
 
         if(!in_array($file_ext,$deny_ext)) {
-            $img_path = $UPLOAD_ADDR . '/' .$file_name;
+            $img_path = UPLOAD_PATH . '/' .$file_name;
             if (move_uploaded_file($_FILES['upload_file']['tmp_name'], $img_path)) { 
                 $is_upload = true;
             }else{
@@ -25,7 +24,7 @@ if (isset($_POST['submit'])) {
         }
 
     } else {
-        $msg = $UPLOAD_ADDR . '文件夹不存在,请手工创建！';
+        $msg = UPLOAD_PATH . '文件夹不存在,请手工创建！';
     }
 }
 ?>
@@ -42,7 +41,7 @@ if (isset($_POST['submit'])) {
                 <p>请选择要上传的图片：<p>
                 <input class="input_file" type="file" name="upload_file"/>
                 <p>保存名称:<p>
-                <input class="input_text" type="text" name="save_name" style="" /><br/>
+                <input class="input_text" type="text" name="save_name" value="upload-19.jpg" /><br/>
                 <input class="button" type="submit" name="submit" value="上传"/>
             </form>
             <div id="msg">

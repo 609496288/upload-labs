@@ -1,5 +1,12 @@
-﻿body{
+﻿/**
+* author: c0ny1
+* date: 2018-6-13
+* project: https://github.com/c0ny1/upload-labs
+*/
+
+body{
 	margin: 0 0 0 0;
+	min-width: 1340px;/*防止窗口变小导致页面变形*/
 	background: #333333;
 	font-family: Lato, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", 微软雅黑, sans-serif;
 }
@@ -7,7 +14,6 @@
 #head{
 	width: 100%;
 	margin: 0px auto;
-	/*border: 1px solid #ddd;*/
 	margin-bottom: 10px;
 	min-width: 1050px;
 }
@@ -71,7 +77,6 @@ p code {
 	border: 1px #ddd;
 	width: 100%;
 	float: left;
-
 	border: 1px solid #000;
 	padding-top: 20px;
 	padding-bottom: 20px;	
@@ -85,7 +90,6 @@ p code {
 	margin-left: 40px;
 	
 }
-
 
 #menu ul{
 	margin: 0 0 0 0;
@@ -139,11 +143,14 @@ p code {
 }
 
 .input_text{
+	padding: 5px;
 	width: 240px;
-	height:22px;
-	-webkit-border-radius: 5px;
-	background: #323232;
+	height: 22px;
+	line-height: 22px;
 	border: 0px;
+	-webkit-border-radius: 5px;
+	color: #888888;
+	background: #323232;
 }
 
 .button{
@@ -172,4 +179,65 @@ p code {
 #footer a{
 	text-decoration: none;
 	color: #A5041D;
+}
+
+.mask {
+	width:100%; 
+	height:100%; 
+	background:rgba(0,0,0,0.6); 
+	display:none; 
+	position:fixed; 
+	_position:absolute; 
+	top:0; left:0; 
+	z-index:99;
+}
+
+.dialog {
+	min-height:120px;
+	background:#393D48;
+	color:#fff;display:none;
+	position:fixed; top:20%;
+	left:50%; 
+	z-index:100; 
+	box-shadow:3px 3px 5px #000;
+	-webkit-border-radius: 5px;
+}
+
+.dialog-title {
+	background:#91440F;
+	width:100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	-webkit-border-radius: 5px 5px 0px 0px;
+}
+
+.dialog a.close { 
+	display:block; 
+	width:22px; 
+	height:22px; 
+	background:url(../img/close.png) center no-repeat #91440F; 
+	text-indent:-9999em;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.dialog a.close { 
+	position:absolute; top:0; 
+	right:0; 
+	z-index:101;
+}
+
+.dialog.loading { 
+	background:url(../img/loading.gif) center no-repeat #393D48;
+}
+
+.dialog-content {
+	line-height: 20px;
+	padding:22px 10px 10px 10px;
+	border-top: 1px solid #000;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	/*过长文本自动换行*/
+	word-break: break-all;
+	word-wrap: break-word;
 }

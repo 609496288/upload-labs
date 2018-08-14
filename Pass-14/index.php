@@ -1,5 +1,4 @@
 <?php
-setcookie("pass","14");
 include '../config.php';
 include '../head.php';
 include '../menu.php';
@@ -27,7 +26,7 @@ if(isset($_POST['submit'])){
     if(!$res){
         $msg = "文件未知，上传失败！";
     }else{
-        $img_path = $UPLOAD_ADDR."/".rand(10, 99).date("YmdHis").$res;
+        $img_path = UPLOAD_PATH."/".rand(10, 99).date("YmdHis").$res;
         if(move_uploaded_file($temp_file,$img_path)){
             $is_upload = true;
         }
@@ -42,7 +41,10 @@ if(isset($_POST['submit'])){
     <ol>
         <li>
             <h3>任务</h3>
-            <p>上传一个<code>图片马</code>到服务器。</p>
+            <p>上传<code>图片马</code>到服务器。</p>
+            <p>注意：</p>
+            <p>1.保证上传后的图片马中仍然包含完整的<code>一句话</code>或<code>webshell</code>代码。</p>
+            <p>2.图片马要<code>.jpg</code>,<code>.png</code>,<code>.gif</code>三种后缀都上传成功才算过关！</p>
         </li>
         <li>
             <h3>上传区</h3>

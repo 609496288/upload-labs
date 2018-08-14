@@ -1,15 +1,11 @@
 <?php
 header("Content-type: text/html;charset=utf-8");
-//error_reporting(0);
-//设置上传大小
+error_reporting(0);
+
+define("WWW_ROOT",$_SERVER['DOCUMENT_ROOT']);
+define("APP_ROOT",str_replace('\\','/',dirname(__FILE__)));
+define("APP_URL_ROOT",str_replace(WWW_ROOT,"",APP_ROOT));
 
 //设置上传目录
-$uploaddir = "./upload/";
-//设置超时时间
-$site_root = "/upload-labs";
-
-$default_img = $site_root."/img/upload.png";
-
-$UPLOAD_ADDR = "../upload/";
-
+define("UPLOAD_PATH", "../upload/");
 ?>

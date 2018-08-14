@@ -1,5 +1,4 @@
 <?php
-setcookie("pass","18");
 include '../config.php';
 include '../head.php';
 include '../menu.php';
@@ -11,7 +10,7 @@ if (isset($_POST['submit']))
     require_once("./myupload.php");
     $imgFileName =time();
     $u = new MyUpload($_FILES['upload_file']['name'], $_FILES['upload_file']['tmp_name'], $_FILES['upload_file']['size'],$imgFileName);
-    $status_code = $u->upload($UPLOAD_ADDR);
+    $status_code = $u->upload(UPLOAD_PATH);
     switch ($status_code) {
         case 1:
             $is_upload = true;
@@ -49,7 +48,7 @@ if (isset($_POST['submit']))
     <ol>
         <li>
             <h3>任务</h3>
-            <p>上传一个<code>图片马</code>到服务器。</p>
+            <p>上传一个<code>webshell</code>到服务器。</p>
         </li>
         <li>
             <h3>上传区</h3>
